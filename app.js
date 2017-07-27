@@ -7,8 +7,8 @@ var express      =require("express"),
     user         =require("./models/user"),
     seedDB       =require("./seeds"),
     passport     =require("passport"),
-    LocalStrategy=require("passport-local")
-    
+    LocalStrategy=require("passport-local"),
+    methodOverride = require("method-override");
 //Routes
 var commentRoutes = require("./routes/comments"),
     campRoutes=require("./routes/campground"),
@@ -19,6 +19,7 @@ mongoose.connect("mongodb://localhost/camp_search");
 app.use(bodyparser.urlencoded({extended: true}));
 app.set("view engine","ejs");
 app.use(express.static(__dirname+"/public"));
+app.use(methodOverride("_method"));
 seedDB();
 
 //passpost config
