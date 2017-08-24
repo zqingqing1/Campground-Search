@@ -47,6 +47,7 @@ function isLoggedIn(req,res,next){
     if(req.isAuthenticated()){
         return next();
     }
+    req.flash("error","Hi there, please login first!");
     res.redirect("/login");
 }
 

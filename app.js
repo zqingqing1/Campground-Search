@@ -8,7 +8,9 @@ var express      =require("express"),
     seedDB       =require("./seeds"),
     passport     =require("passport"),
     LocalStrategy=require("passport-local"),
-    methodOverride = require("method-override");
+    methodOverride = require("method-override"),
+    flash = require("connect-flash");
+
 //Routes
 var commentRoutes = require("./routes/comments"),
     campRoutes=require("./routes/campground"),
@@ -20,8 +22,10 @@ app.use(bodyparser.urlencoded({extended: true}));
 app.set("view engine","ejs");
 app.use(express.static(__dirname+"/public"));
 app.use(methodOverride("_method"));
-seedDB();
+app.use(flash());
+//seedDB();
 
+app.locals.moment=require("moment");
 //passpost config
 app.use(require("express-session")({
     secret:"secret",
@@ -37,6 +41,8 @@ passport.deserializeUser(user.deserializeUser());
 
 app.use(function(req,res,next){
     res.locals.currentUser=req.user;
+    res.locals.error = req.flash("error");
+    res.locals.success = req.flash("success");
     next();
 });
 

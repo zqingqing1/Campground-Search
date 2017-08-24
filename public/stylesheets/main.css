@@ -11,3 +11,15 @@
     padding:9px;
 }
 
+#map{
+    height:400px;
+    width:100%;
+}
+
+#footer {
+    clear: both;
+    position: relative;
+    z-index: 10;
+    height: 3em;
+    margin-top: -3em;
+}

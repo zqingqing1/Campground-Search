@@ -1,0 +1,92 @@
+body{
+    background-color: #000;
+}
+
+#landing-page {
+    z-index:1;
+    position:relative;
+    text-align: center;
+    padding-top: 40vh; 
+}
+
+#landing-page h1{
+    color:#fff;
+}
+
+.slideshow{
+    position: fixed;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    z-index:0;
+    list-style:none;
+    margin:0;
+    padding:0;
+}
+
+.slideshow li{
+    position: absolute;
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    z-index:0;
+    background-size: cover;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    opacity: 0;
+    animation: imageAnimation 25s linear infinite;
+}
+
+.slideshow li:nth-child(1){
+    
+    background-image: url(http://www.suttonfalls.com/communities/4/004/012/498/244//images/4628314067.jpg);
+}
+
+.slideshow li:nth-child(2){
+    background-image: url(http://www.lakecityswitchbacks.com/uploads/8/0/8/7/8087134/3548667_orig.jpg);
+    animation-delay: 5s;
+}
+
+.slideshow li:nth-child(3){
+    background-image: url(https://witchmeadowcampground.com/images/home/witchmeadowcampground-pool-slider2-840x464.JPG);
+    animation-delay: 10s;
+    
+}
+
+.slideshow li:nth-child(4){
+    background-image: url(https://witchmeadowcampground.com/images/home/witch-meadow-lake-campground-sliderimagelakeside.JPG);
+    animation-delay: 15s;
+    
+}
+
+.slideshow li:nth-child(5){
+    background-image: url(http://bluerockscampground.com/images/rates/1-Creekside-Cottage-Blue-Rocks.jpg);
+    animation-delay: 20s;
+    
+}
+
+@keyframes imageAnimation{
+    0%{
+        opacity: 0.2;
+        animation-timing-function: ease-in;
+    }
+    
+    10%{
+        opacity: 1;
+        animation-timing-function: ease-out;
+    }
+    
+    20%{
+        opacity: 1;
+    }
+    
+    30%{
+        opacity: 0.2;
+    }
+} 
+
+.no-cssanimations .slide li{
+    opacity: 1;
+}
